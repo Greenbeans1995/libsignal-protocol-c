@@ -123,7 +123,7 @@ set_target_properties(fuzzer
 	PROPERTIES COMPILE_FLAGS "-fsanitize=fuzzer-no-link,address"
 )
 set_target_properties(fuzzer
-	PROPERTIES LINK_FLAGS "-fsanitize=fuzzer,address -z muldefs"
+	PROPERTIES LINK_FLAGS "-fsanitize=fuzzer,address -z muldefs -lsubunit"
 )
 
 # And run it for 2048 iterations as part of the test suite (should take at most a few seconds) to ensure it works
