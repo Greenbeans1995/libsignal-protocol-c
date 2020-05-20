@@ -120,10 +120,10 @@ set(LIBS
 add_executable(fuzzer "fuzz_target.c" "test_common_openssl.c")
 target_link_libraries(fuzzer ${LIBS})
 set_target_properties(fuzzer
-	PROPERTIES COMPILE_FLAGS "-fsanitize=fuzzer-no-link,address -Wl,-Bstatic -lsubunit -Wl,-Bdynamic -v"
+	PROPERTIES COMPILE_FLAGS "-fsanitize=fuzzer-no-link,address /usr/lib/x86_64-linux-gnu/libsubunit.a -v"
 )
 set_target_properties(fuzzer
-	PROPERTIES LINK_FLAGS "-fsanitize=fuzzer,address -z muldefs -Wl,-Bstatic -lsubunit -Wl,-Bdynamic -v"
+	PROPERTIES LINK_FLAGS "-fsanitize=fuzzer,address -z muldefs /usr/lib/x86_64-linux-gnu/libsubunit.a -v"
 )
 
 # And run it for 2048 iterations as part of the test suite (should take at most a few seconds) to ensure it works
